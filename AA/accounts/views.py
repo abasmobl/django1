@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from.models import User,UserProfile
 
 # Create your views here.
 
@@ -14,7 +15,8 @@ def dashboard(request):
 def login(request):
     return render (request,'accounts/login.html',{})
 def profile(request):
-    return render (request,'accounts/profile.html',{})
+    user_profile=UserProfile.objects.get(id=1)
+    return render (request,'accounts/profile.html',{'userprofile':user_profile})
 def profiles(request):
     return render (request,'accounts/profiles.html',{})
 def register(request):
